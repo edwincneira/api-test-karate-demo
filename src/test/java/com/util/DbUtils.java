@@ -12,8 +12,8 @@ public class DbUtils {
     private JdbcTemplate jdbc;
 
     public DbUtils(Map<String, Object> config) {
-        String url = (String) config.get("url");
-        String username = (String) config.get("username");
+        String url = (String) config.get("host");
+        String username = (String) config.get("user");
         String password = (String) config.get("password");
         String driver = (String) config.get("driverClassName");
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
@@ -36,4 +36,5 @@ public class DbUtils {
     public List<Map<String, Object>> readRows(String query) {
         return jdbc.queryForList(query);
     }
+
 }
